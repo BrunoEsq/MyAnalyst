@@ -1,3 +1,32 @@
-form{
-    margin: 50px;
+form {
+  margin: 50px;
+}
+
+div {
+  display: flex;
+}
+
+
+.flecha {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flecha i {
+  font-size: 24px;
+  color: #63E6BE;
+}
+
+.flecha i:hover {
+  transition: 0.1s;
+  font-size: 25px;
+  color: #e69c63;
+}
+
+.gifcontainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
