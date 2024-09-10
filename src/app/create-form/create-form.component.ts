@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CookieService } from '../cookie.service';
+import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-create-form',
@@ -15,12 +17,45 @@ export class CreateFormComponent {
   labels: string = "";
   data: string = "";
   color: string = "";
-  constructor(private cookieService: CookieService) {}
+
+  aname: string = "";
+  alabels: string = "";
+  adata: string = "";
+  acolor: string = "";
+  constructor(private cookieService: CookieService, private router: Router) { }
 
   onSubmit() {
     this.cookieService.setCookie("name", this.name, 365);
     this.cookieService.setCookie("labels", this.labels, 365);
     this.cookieService.setCookie("data", this.data, 365);
     this.cookieService.setCookie("color", this.color, 365);
+  }
+
+  fName() {
+    this.aname = "1";
+  }
+
+  fLabels() {
+    this.alabels = "1";
+  }
+
+  fData() {
+    this.adata = "1";
+  }
+
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  redirect() {
+    this.acolor = "1";
+    (async () => {
+
+      console.log('before delay');
+      await this.delay(1900);
+
+      this.router.navigate(['']);
+      console.log('after delay');
+    })();
   }
 }
