@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-homepage',
   standalone: true,
@@ -9,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class HomepageComponent {
 
+  constructor(private router: Router){
+
+  }
+
+  redirectChart() {
+    
+      this.router.navigate(['create']);
+
+
+  }
 }
