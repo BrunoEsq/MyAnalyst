@@ -25,10 +25,7 @@ export class CreateFormComponent {
   constructor(private cookieService: CookieService, private router: Router) { }
 
   onSubmit() {
-    this.cookieService.setCookie("name", this.name, 365);
-    this.cookieService.setCookie("labels", this.labels, 365);
-    this.cookieService.setCookie("data", this.data, 365);
-    this.cookieService.setCookie("color", this.color, 365);
+    console.log("Completed")
   }
 
   fName() {
@@ -48,13 +45,19 @@ export class CreateFormComponent {
   }
 
   redirect() {
+    this.cookieService.setCookie("name", this.name, 365);
+    this.cookieService.setCookie("labels", this.labels, 365);
+    this.cookieService.setCookie("data", this.data, 365);
+    this.cookieService.setCookie("color", this.color, 365);
+    
     this.acolor = "1";
+    
     (async () => {
 
       console.log('before delay');
       await this.delay(1900);
 
-      this.router.navigate(['']);
+      this.router.navigate(['charts']);
       console.log('after delay');
     })();
   }
