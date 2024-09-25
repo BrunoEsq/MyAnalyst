@@ -17,7 +17,9 @@ export class CreateFormComponent {
   labels: string = "";
   data: string = "";
   color: string = "";
+  chart: string ="";
 
+  achart: string = "";
   aname: string = "";
   alabels: string = "";
   adata: string = "";
@@ -27,7 +29,9 @@ export class CreateFormComponent {
   onSubmit() {
     console.log("Completed")
   }
-
+  fChart(){
+    this.achart = "1";
+  }
   fName() {
     this.aname = "1";
   }

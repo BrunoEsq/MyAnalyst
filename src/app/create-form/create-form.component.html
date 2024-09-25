@@ -25,16 +25,23 @@
 
 
 <form (ngSubmit)="onSubmit()" #myForm="ngForm" class="m-5" *ngIf="acolor!='1'">
-    <label for="name">Name</label>
-    <div class="form-group">
+    <label  for="chart">Chart Type</label>
+    <select (change)="fChart()" class="form-select" aria-label="Default select example" name="chart" id="chart"
+        [(ngModel)]="color">
+        <option selected value="1">Line Chart</option>
+        <option value="2">Bar Chart</option>
+        <option value="3">Area Chart</option>
+    </select>
+    <br>
+    <label *ngIf="achart == '1'" for="name">Name</label>
+    <div *ngIf="achart == '1'" class="form-group">
         <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Enter name">
         <!-- <button (click)="fName()"><i class="fa-solid fa-circle-arrow-right" style="color: #63E6BE;"></i></button> -->
         <div class="flecha">
             <i *ngIf="aname != '1'" (click)="fName()" class="fa-solid fa-circle-arrow-right"></i>
             <i *ngIf="aname == '1'" class="fa-solid fa-check"></i>
         </div>
-<!-- hola -->
- <!-- hola -->
+
     </div>
     <label *ngIf="aname == '1'" for="labels">Labels</label>
     <div *ngIf="aname == '1'" class="form-group">
