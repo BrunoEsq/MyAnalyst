@@ -1,33 +1,7 @@
-<!-- <form (ngSubmit)="onSubmit()" #myForm="ngForm" class="m-5">
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Enter name">
-    </div>
-    <div class="form-group">
-        <label for="labels">Labels</label>
-        <input type="text" class="form-control" id="labels" name="labels" [(ngModel)]="labels"
-            placeholder="Example: January, February, ...">
-    </div>
-    <div class="form-group">
-        <label for="data">Data</label>
-        <input type="text" class="form-control" id="data" name="data" [(ngModel)]="data" placeholder="Example: 1,2,3,4">
-    </div>
-    <label for="color">Color</label>
-    <select class="form-select" aria-label="Default select example" name="color" id="color" [(ngModel)]="color">
-        <option selected>Select Line Color</option>
-        <option value="1">Green</option>
-        <option value="2">Red</option>
-        <option value="3">Blue</option>
-    </select>
-    <br>
-    <input type="submit" name="Create" id="quest">
-</form> -->
-
-
 <form (ngSubmit)="onSubmit()" #myForm="ngForm" class="m-5" *ngIf="acolor!='1'">
     <label  for="chart">Chart Type</label>
     <select (change)="fChart()" class="form-select" aria-label="Default select example" name="chart" id="chart"
-        [(ngModel)]="color">
+        [(ngModel)]="chart">
         <option selected value="1">Line Chart</option>
         <option value="2">Bar Chart</option>
         <option value="3">Area Chart</option>
@@ -36,7 +10,7 @@
     <label *ngIf="achart == '1'" for="name">Name</label>
     <div *ngIf="achart == '1'" class="form-group">
         <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Enter name">
-        <!-- <button (click)="fName()"><i class="fa-solid fa-circle-arrow-right" style="color: #63E6BE;"></i></button> -->
+
         <div class="flecha">
             <i *ngIf="aname != '1'" (click)="fName()" class="fa-solid fa-circle-arrow-right"></i>
             <i *ngIf="aname == '1'" class="fa-solid fa-check"></i>
@@ -47,7 +21,6 @@
     <div *ngIf="aname == '1'" class="form-group">
         <input type="text" class="form-control" id="labels" name="labels" [(ngModel)]="labels"
             placeholder="Example: January, February, ...">
-        <!-- <button (click)="fLabels()"></button> -->
         <div class="flecha">
             <i *ngIf="alabels != '1'" (click)="fLabels()" class="fa-solid fa-circle-arrow-right"></i>
             <i *ngIf="alabels == '1'" class="fa-solid fa-check"></i>
@@ -56,7 +29,6 @@
     <label *ngIf="alabels == '1'" for="data">Data</label>
     <div *ngIf="alabels == '1'" class="form-group">
         <input type="text" class="form-control" id="data" name="data" [(ngModel)]="data" placeholder="Example: 1,2,3,4">
-        <!-- <button (click)="fData()"></button> -->
         <div class="flecha">
             <i *ngIf="adata != '1'" (click)="fData()" class="fa-solid fa-circle-arrow-right"></i>
             <i *ngIf="adata == '1'" class="fa-solid fa-check"></i>
@@ -69,10 +41,7 @@
         <option value="1">Green</option>
         <option value="2">Red</option>
         <option value="3">Blue</option>
-        <!-- <button (click)="fColor()"></button> -->
     </select>
-    <!-- <br>
-    <input *ngIf="adata == '1'" type="submit" name="Create" id="quest"> -->
     <br>
     <button (click)="redirect()" *ngIf="adata == '1'" type="submit" name="Create" id="quest"
         class="btn btn-primary">Submit</button>

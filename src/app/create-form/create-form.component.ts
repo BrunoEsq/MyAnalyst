@@ -53,7 +53,8 @@ export class CreateFormComponent {
     this.cookieService.setCookie("labels", this.labels, 365);
     this.cookieService.setCookie("data", this.data, 365);
     this.cookieService.setCookie("color", this.color, 365);
-    
+    this.cookieService.setCookie("chart", this.chart, 365);
+
     this.acolor = "1";
     
     (async () => {
