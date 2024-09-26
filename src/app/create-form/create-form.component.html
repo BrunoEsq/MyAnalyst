@@ -49,7 +49,7 @@
         <option value="3">Blue</option>
         <br>
     </select>
-    <br>
+    <br *ngIf="chart=='1'">
     <button (click)="redirect()" *ngIf="adata == '1' && chart == '1'" type="submit" name="Create" id="quest"
         class="btn btn-primary">Submit</button>
     <!-- Para cuando se elige Bar Chart -->
@@ -91,8 +91,8 @@
         <input type="text" class="form-control" id="data2" name="data2" [(ngModel)]="data2"
             placeholder="Example: 1,2,3,4">
         <div class="flecha">
-            <i *ngIf="adata != '1'" (click)="fData2()" class="fa-solid fa-circle-arrow-right"></i>
-            <i *ngIf="adata == '1'" class="fa-solid fa-check"></i>
+            <i *ngIf="adata2 != '1'" (click)="fData2()" class="fa-solid fa-circle-arrow-right"></i>
+            <i *ngIf="adata2 == '1'" class="fa-solid fa-check"></i>
         </div>
     </div>
 
@@ -107,7 +107,7 @@
     </select>
     <br>
 
-    <button (click)="redirect()" *ngIf="adata == '1' && chart == '2'" type="submit" name="Create" id="quest"
+    <button (click)="redirect()" *ngIf="adata == '1' && adata2 == '1' && chart == '2'" type="submit" name="Create" id="quest"
         class="btn btn-primary">Submit</button>
 </form>
 

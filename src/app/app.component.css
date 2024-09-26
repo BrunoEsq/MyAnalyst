@@ -2,3 +2,15 @@
     font-weight: bold;
     color: #007bff; /* Cambia el color del enlace activo */
   }
+  .logo{
+    transition: transform 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    margin-left: 10px;
+  }
+
+  .logo:hover{
+    height: 32px;
+  }
