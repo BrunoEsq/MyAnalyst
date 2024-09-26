@@ -16,6 +16,7 @@ export class CreateFormComponent {
   name: string = "";
   labels: string = "";
   data: string = "";
+  data2: string = "";
   color: string = "";
   chart: string ="";
 
@@ -23,6 +24,7 @@ export class CreateFormComponent {
   aname: string = "";
   alabels: string = "";
   adata: string = "";
+  adata2: string = "";
   acolor: string = "";
   constructor(private cookieService: CookieService, private router: Router) { }
 
@@ -40,8 +42,13 @@ export class CreateFormComponent {
     this.alabels = "1";
   }
 
+
   fData() {
     this.adata = "1";
+  }
+
+  fData2() {
+    this.adata2 = "1";
   }
 
   delay(ms: number) {
@@ -52,6 +59,7 @@ export class CreateFormComponent {
     this.cookieService.setCookie("name", this.name, 365);
     this.cookieService.setCookie("labels", this.labels, 365);
     this.cookieService.setCookie("data", this.data, 365);
+    this.cookieService.setCookie("data2", this.data2, 365);
     this.cookieService.setCookie("color", this.color, 365);
     this.cookieService.setCookie("chart", this.chart, 365);
 

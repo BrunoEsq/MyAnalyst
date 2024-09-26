@@ -1,25 +1,26 @@
-<form (ngSubmit)="onSubmit()" #myForm="ngForm" class="m-5" *ngIf="acolor!='1'">
-    <label  for="chart">Chart Type</label>
+<form (ngSubmit)="onSubmit()" #myForm="ngForm" class="m-5" *ngIf="acolor != '1'">
+    <label for="chart">Chart Type</label>
     <select (change)="fChart()" class="form-select" aria-label="Default select example" name="chart" id="chart"
         [(ngModel)]="chart">
         <option selected value="1">Line Chart</option>
         <option value="2">Bar Chart</option>
         <option value="3">Area Chart</option>
-        <!-- <option value="4">Pie Chart</option>  Volver a intentar --> 
     </select>
     <br>
-    <label *ngIf="achart == '1'" for="name">Name</label>
-    <div *ngIf="achart == '1'" class="form-group">
-        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Enter name">
 
+    <!-- Para cuando se elige Line Chart -->
+    <label *ngIf="achart == '1' && chart == '1'" for="name">Name</label>
+    <div *ngIf="achart == '1' && chart == '1'" class="form-group">
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Enter name">
         <div class="flecha">
             <i *ngIf="aname != '1'" (click)="fName()" class="fa-solid fa-circle-arrow-right"></i>
             <i *ngIf="aname == '1'" class="fa-solid fa-check"></i>
         </div>
-
     </div>
-    <label *ngIf="aname == '1'" for="labels">Labels</label>
-    <div *ngIf="aname == '1'" class="form-group">
+
+
+    <label *ngIf="aname == '1' && chart == '1'" for="labels">Labels</label>
+    <div *ngIf="aname == '1' && chart == '1'" class="form-group">
         <input type="text" class="form-control" id="labels" name="labels" [(ngModel)]="labels"
             placeholder="Example: January, February, ...">
         <div class="flecha">
@@ -27,26 +28,90 @@
             <i *ngIf="alabels == '1'" class="fa-solid fa-check"></i>
         </div>
     </div>
-    <label *ngIf="alabels == '1'" for="data">Data</label>
-    <div *ngIf="alabels == '1'" class="form-group">
+
+
+    <label *ngIf="alabels == '1' && chart == '1'" for="data">Data</label>
+    <div *ngIf="alabels == '1' && chart == '1'" class="form-group">
         <input type="text" class="form-control" id="data" name="data" [(ngModel)]="data" placeholder="Example: 1,2,3,4">
         <div class="flecha">
             <i *ngIf="adata != '1'" (click)="fData()" class="fa-solid fa-circle-arrow-right"></i>
             <i *ngIf="adata == '1'" class="fa-solid fa-check"></i>
         </div>
     </div>
-    <label *ngIf="adata == '1'" for="color">Color</label>
-    <select *ngIf="adata == '1'" class="form-select" aria-label="Default select example" name="color" id="color"
-        [(ngModel)]="color">
+
+
+    <label *ngIf="adata == '1' && chart == '1'" for="color">Color</label>
+    <select *ngIf="adata == '1' && chart == '1'" class="form-select" aria-label="Default select example" name="color"
+        id="color" [(ngModel)]="color">
+        <option selected>Select Line Color</option>
+        <option value="1">Green</option>
+        <option value="2">Red</option>
+        <option value="3">Blue</option>
+        <br>
+    </select>
+    <br *ngIf="chart=='1'">
+    <button (click)="redirect()" *ngIf="adata == '1' && chart == '1'" type="submit" name="Create" id="quest"
+        class="btn btn-primary">Submit</button>
+    <!-- Para cuando se elige Bar Chart -->
+
+    <label *ngIf="achart == '1' && chart == '2'" for="name">Name</label>
+    <div *ngIf="achart == '1' && chart == '2'" class="form-group">
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Enter name">
+        <div class="flecha">
+            <i *ngIf="aname != '1'" (click)="fName()" class="fa-solid fa-circle-arrow-right"></i>
+            <i *ngIf="aname == '1'" class="fa-solid fa-check"></i>
+        </div>
+    </div>
+
+
+    <label *ngIf="aname == '1' && chart == '2'" for="labels">Label 1</label>
+    <div *ngIf="aname == '1' && chart == '2'" class="form-group">
+        <input type="text" class="form-control" id="labels" name="labels" [(ngModel)]="labels"
+            placeholder="Example: January, February, ...">
+        <div class="flecha">
+            <i *ngIf="alabels != '1'" (click)="fLabels()" class="fa-solid fa-circle-arrow-right"></i>
+            <i *ngIf="alabels == '1'" class="fa-solid fa-check"></i>
+        </div>
+    </div>
+
+
+
+
+    <label *ngIf="alabels == '1' && chart == '2'" for="data">Data 1</label>
+    <div *ngIf="alabels == '1' && chart == '2'" class="form-group">
+        <input type="text" class="form-control" id="data" name="data" [(ngModel)]="data" placeholder="Example: 1,2,3,4">
+        <div class="flecha">
+            <i *ngIf="adata != '1'" (click)="fData()" class="fa-solid fa-circle-arrow-right"></i>
+            <i *ngIf="adata == '1'" class="fa-solid fa-check"></i>
+        </div>
+    </div>
+
+    <label *ngIf="alabels == '1' && chart == '2'" for="data2">Data 2</label>
+    <div *ngIf="alabels == '1' && chart == '2'" class="form-group">
+        <input type="text" class="form-control" id="data2" name="data2" [(ngModel)]="data2"
+            placeholder="Example: 1,2,3,4">
+        <div class="flecha">
+            <i *ngIf="adata2 != '1'" (click)="fData2()" class="fa-solid fa-circle-arrow-right"></i>
+            <i *ngIf="adata2 == '1'" class="fa-solid fa-check"></i>
+        </div>
+    </div>
+
+
+    <label *ngIf="adata == '1' && adata2 == '1' && chart == '2'" for="color">Color</label>
+    <select *ngIf="adata == '1' && adata2 == '1' && chart == '2'" class="form-select"
+        aria-label="Default select example" name="color" id="color" [(ngModel)]="color">
         <option selected>Select Line Color</option>
         <option value="1">Green</option>
         <option value="2">Red</option>
         <option value="3">Blue</option>
     </select>
     <br>
-    <button (click)="redirect()" *ngIf="adata == '1'" type="submit" name="Create" id="quest"
+
+    <button (click)="redirect()" *ngIf="adata == '1' && adata2 == '1' && chart == '2'" type="submit" name="Create" id="quest"
         class="btn btn-primary">Submit</button>
 </form>
+
+
 <div class="gifcontainer">
-    <img *ngIf="acolor =='1'" src="check.gif" alt="check">
+    <img *ngIf="acolor == '1'" src="check.gif" alt="check">
 </div>
