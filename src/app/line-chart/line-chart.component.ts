@@ -17,10 +17,12 @@ export class LineChartComponent implements OnInit {
   name: string = "";
   labels: string = "";
   data: string = "";
+  data2: string = "";
   color: string = "";
   t_chart: string = "";
   labels_array: string[] = [];
   data_array: number[] = [];
+  data_array2: number[] = [];
 
   ngOnInit(): void {
 
@@ -29,6 +31,7 @@ export class LineChartComponent implements OnInit {
     this.data = this.cookieService.getCookie("data");
     this.color = this.cookieService.getCookie("color");
     this.t_chart = this.cookieService.getCookie("chart");
+    this.data2 = this.cookieService.getCookie("data2");
 
     if (this.color == "1") {
       this.color = "green";
@@ -39,8 +42,9 @@ export class LineChartComponent implements OnInit {
     }
     this.labels_array = this.labels.split(",").map(label => label.trim());
     this.data_array = this.data.split(",").map(value => parseInt(value.trim(), 10));
-    const DATA_COUNT = 7;
-    const NUMBER_CFG = { count: DATA_COUNT, min: -100, max: 100 };
+    this.data_array2 = this.data2.split(",").map(value => parseInt(value.trim(), 10));
+
+
     let datas;
 
     if (this.t_chart == "1") {
@@ -76,7 +80,7 @@ export class LineChartComponent implements OnInit {
           },
           {
             label: 'Small Radius',
-            data: this.data_array,
+            data: this.data_array2,
             borderColor: this.color,
             backgroundColor: "yellow",
             borderWidth: 2,
