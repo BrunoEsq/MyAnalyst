@@ -45,38 +45,11 @@ export class CreateFormComponent {
   data_array: number[] = [];
   data_array2: number[] = [];
   chart3: Chart | null = null;
+  chartInstance: Chart | null = null;
+
   constructor(private cookieService: CookieService, private router: Router) { }
 
-  ngOnInit() {
-    this.fColor();
-    this.labels2 = this.labels.split(",").map(label => label.trim());
-    this.data_2 = this.data.split(",").map(value => parseInt(value.trim(), 10));
-    this.data2_2 = this.data2.split(",").map(value => parseInt(value.trim(), 10));
-
-    let datas;
-    console.log(this.chart);
-    if (this.chart == "1") {
-      datas = {
-        labels: this.labels2,
-        datasets: [{
-          label: this.name2,
-          data: this.data_2,
-          fill: false,
-          borderColor: this.color2.toLowerCase(),
-          tension: 0.1
-
-        }]
-
-      }
-      this.chart2 = new Chart("chart", {
-        type: 'line',
-        data: datas,
-      });
-
-    } else {
-
-    }
-  }
+  
 
   onSubmit() {
     console.log("Completed")
@@ -101,35 +74,49 @@ export class CreateFormComponent {
     this.adata2 = "1";
   }
 
-  fColor() {
-    const ctx = document.getElementById("chart") as HTMLCanvasElement;
-    console.log(ctx)
-    this.labels_array = this.labels.split(",").map(label => label.trim());
-    this.data_array = this.data.split(",").map(value => parseInt(value.trim(), 10));
-    this.data_array2 = this.data2.split(",").map(value => parseInt(value.trim(), 10));
-    console.log("1. " + this.labels_array);
-    console.log("2. " + this.data_array);
-    console.log("3. " + this.data_array2);
+  updateChart() {
+    const ctx = document.getElementById("chart2") as HTMLCanvasElement;
 
-    let datas;
+    if (this.chartInstance) {
+      this.chartInstance.destroy();
+    }
+    if (this.color == "1"){
+      this.acolor= "green";
+    }else if (this.color == "2"){
+      this.acolor= "red";
+    }else{
+      this.acolor= "blue";
+    }
 
-    datas = {
-      labels: this.labels_array,
+
+    const labelsArray = this.labels.split(",").map(label => label.trim());
+    const dataArray = this.data.split(",").map(value => parseInt(value.trim(), 10));
+
+
+    const chartData = {
+      labels: labelsArray,
       datasets: [{
         label: this.name,
-        data: this.data_array,
+        data: dataArray,
         fill: true,
-        borderColor: this.color.toLowerCase(),
-        backgroundColor: this.color.toLowerCase(),
+        borderColor: "gray",
+        backgroundColor: this.acolor.toLowerCase(),
         tension: 0.1
       }]
     };
 
-    this.chart3 = new Chart(ctx, {
+    this.chartInstance = new Chart(ctx, {
       type: 'line',
-      data: datas,
+      data: chartData,
     });
   }
+
+
+  onFormChange() {
+    this.updateChart();
+  }
+
+  
 
   delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));

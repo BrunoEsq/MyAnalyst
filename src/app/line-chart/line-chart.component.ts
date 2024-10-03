@@ -102,7 +102,7 @@ export class LineChartComponent implements OnInit {
           label: this.name,
           data: this.data_array,
           fill: true,
-          borderColor: this.color.toLowerCase(),
+          borderColor: "gray",
           backgroundColor: this.color.toLowerCase(),
           tension: 0.1
         }]
