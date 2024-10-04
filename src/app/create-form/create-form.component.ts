@@ -49,7 +49,7 @@ export class CreateFormComponent {
 
   constructor(private cookieService: CookieService, private router: Router) { }
 
-  
+
 
   onSubmit() {
     console.log("Completed")
@@ -80,43 +80,92 @@ export class CreateFormComponent {
     if (this.chartInstance) {
       this.chartInstance.destroy();
     }
-    if (this.color == "1"){
-      this.acolor= "green";
-    }else if (this.color == "2"){
-      this.acolor= "red";
-    }else{
-      this.acolor= "blue";
+    if (this.color == "1") {
+      this.acolor = "green";
+    } else if (this.color == "2") {
+      this.acolor = "red";
+    } else {
+      this.acolor = "blue";
     }
 
 
     const labelsArray = this.labels.split(",").map(label => label.trim());
     const dataArray = this.data.split(",").map(value => parseInt(value.trim(), 10));
+    const dataArray2 = this.data2.split(",").map(value => parseInt(value.trim(), 10));
+    if (this.chart == "1") {
+      const chartData = {
+        labels: labelsArray,
+        datasets: [{
+          label: this.name,
+          data: dataArray,
+          fill: false,
+          borderColor: "gray",
+          backgroundColor: this.acolor.toLowerCase(),
+          tension: 0.1
+        }]
+      };
 
+      this.chartInstance = new Chart(ctx, {
+        type: 'line',
+        data: chartData,
+      });
+    } else if (this.chart == "2") {
+      const chartData = {
+        labels: labelsArray,
+        datasets: [
+          {
+            label: 'Fully Rounded',
+            data: dataArray,
+            borderColor: this.color,
+            backgroundColor: this.acolor.toLowerCase(),
+            borderWidth: 2,
+            borderRadius: Number.MAX_VALUE,
+            borderSkipped: false,
+          },
+          {
+            label: 'Small Radius',
+            data: dataArray2,
+            borderColor: this.color,
+            backgroundColor: "yellow",
+            borderWidth: 2,
+            borderRadius: 5,
+            borderSkipped: false,
+          }
+        ]
+      };
 
-    const chartData = {
-      labels: labelsArray,
-      datasets: [{
-        label: this.name,
-        data: dataArray,
-        fill: true,
-        borderColor: "gray",
-        backgroundColor: this.acolor.toLowerCase(),
-        tension: 0.1
-      }]
-    };
+      this.chartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+      });
+    } else if (this.chart == "3") {
+      const chartData = {
+        labels: labelsArray,
+        datasets: [{
+          label: this.name,
+          data: dataArray,
+          fill: true,
+          borderColor: "gray",
+          backgroundColor: this.acolor.toLowerCase(),
+          tension: 0.1
+        }]
+      };
 
-    this.chartInstance = new Chart(ctx, {
-      type: 'line',
-      data: chartData,
-    });
+      this.chartInstance = new Chart(ctx, {
+        type: 'line',
+        data: chartData,
+      });
+    }
   }
+
+
 
 
   onFormChange() {
     this.updateChart();
   }
 
-  
+
 
   delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));

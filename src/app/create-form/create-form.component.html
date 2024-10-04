@@ -11,7 +11,8 @@
     <!-- Para cuando se elige Line Chart -->
     <label *ngIf="achart == '1' && chart == '1'" for="name">Name</label>
     <div *ngIf="achart == '1' && chart == '1'" class="form-group">
-        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Enter name">
+        <input (change)="onFormChange()" type="text" class="form-control" id="name" name="name" [(ngModel)]="name"
+            placeholder="Enter name">
         <div class="flecha">
             <i *ngIf="aname != '1'" (click)="fName()" class="fa-solid fa-circle-arrow-right"></i>
             <i *ngIf="aname == '1'" class="fa-solid fa-check"></i>
@@ -21,7 +22,7 @@
 
     <label *ngIf="aname == '1' && chart == '1'" for="labels">Labels</label>
     <div *ngIf="aname == '1' && chart == '1'" class="form-group">
-        <input type="text" class="form-control" id="labels" name="labels" [(ngModel)]="labels"
+        <input (change)="onFormChange()" type="text" class="form-control" id="labels" name="labels" [(ngModel)]="labels"
             placeholder="Example: January, February, ...">
         <div class="flecha">
             <i *ngIf="alabels != '1'" (click)="fLabels()" class="fa-solid fa-circle-arrow-right"></i>
@@ -32,7 +33,8 @@
 
     <label *ngIf="alabels == '1' && chart == '1'" for="data">Data</label>
     <div *ngIf="alabels == '1' && chart == '1'" class="form-group">
-        <input type="text" class="form-control" id="data" name="data" [(ngModel)]="data" placeholder="Example: 1,2,3,4">
+        <input (change)="onFormChange()" type="text" class="form-control" id="data" name="data" [(ngModel)]="data"
+            placeholder="Example: 1,2,3,4">
         <div class="flecha">
             <i *ngIf="adata != '1'" (click)="fData()" class="fa-solid fa-circle-arrow-right"></i>
             <i *ngIf="adata == '1'" class="fa-solid fa-check"></i>
@@ -41,8 +43,8 @@
 
 
     <label *ngIf="adata == '1' && chart == '1'" for="color">Color</label>
-    <select *ngIf="adata == '1' && chart == '1'" class="form-select" aria-label="Default select example" name="color"
-        id="color" [(ngModel)]="color">
+    <select (change)="onFormChange()" *ngIf="adata == '1' && chart == '1'" class="form-select"
+        aria-label="Default select example" name="color" id="color" [(ngModel)]="color">
         <option selected>Select Line Color</option>
         <option value="1">Green</option>
         <option value="2">Red</option>
@@ -56,7 +58,8 @@
 
     <label *ngIf="achart == '1' && chart == '2'" for="name">Name</label>
     <div *ngIf="achart == '1' && chart == '2'" class="form-group">
-        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Enter name">
+        <input (change)="onFormChange()" type="text" class="form-control" id="name" name="name" [(ngModel)]="name"
+            placeholder="Enter name">
         <div class="flecha">
             <i *ngIf="aname != '1'" (click)="fName()" class="fa-solid fa-circle-arrow-right"></i>
             <i *ngIf="aname == '1'" class="fa-solid fa-check"></i>
@@ -66,7 +69,7 @@
 
     <label *ngIf="aname == '1' && chart == '2'" for="labels">Label 1</label>
     <div *ngIf="aname == '1' && chart == '2'" class="form-group">
-        <input type="text" class="form-control" id="labels" name="labels" [(ngModel)]="labels"
+        <input (change)="onFormChange()" type="text" class="form-control" id="labels" name="labels" [(ngModel)]="labels"
             placeholder="Example: January, February, ...">
         <div class="flecha">
             <i *ngIf="alabels != '1'" (click)="fLabels()" class="fa-solid fa-circle-arrow-right"></i>
@@ -79,7 +82,8 @@
 
     <label *ngIf="alabels == '1' && chart == '2'" for="data">Data 1</label>
     <div *ngIf="alabels == '1' && chart == '2'" class="form-group">
-        <input type="text" class="form-control" id="data" name="data" [(ngModel)]="data" placeholder="Example: 1,2,3,4">
+        <input (change)="onFormChange()" type="text" class="form-control" id="data" name="data" [(ngModel)]="data"
+            placeholder="Example: 1,2,3,4">
         <div class="flecha">
             <i *ngIf="adata != '1'" (click)="fData()" class="fa-solid fa-circle-arrow-right"></i>
             <i *ngIf="adata == '1'" class="fa-solid fa-check"></i>
@@ -88,7 +92,7 @@
 
     <label *ngIf="alabels == '1' && chart == '2'" for="data2">Data 2</label>
     <div *ngIf="alabels == '1' && chart == '2'" class="form-group">
-        <input type="text" class="form-control" id="data2" name="data2" [(ngModel)]="data2"
+        <input (change)="onFormChange()" type="text" class="form-control" id="data2" name="data2" [(ngModel)]="data2"
             placeholder="Example: 1,2,3,4">
         <div class="flecha">
             <i *ngIf="adata2 != '1'" (click)="fData2()" class="fa-solid fa-circle-arrow-right"></i>
@@ -98,21 +102,25 @@
 
 
     <label *ngIf="adata == '1' && adata2 == '1' && chart == '2'" for="color">Color</label>
-    <select *ngIf="adata == '1' && adata2 == '1' && chart == '2'" class="form-select"
+    <select (change)="onFormChange()" *ngIf="adata == '1' && adata2 == '1' && chart == '2'" class="form-select"
         aria-label="Default select example" name="color" id="color" [(ngModel)]="color">
         <option selected>Select Line Color</option>
         <option value="1">Green</option>
         <option value="2">Red</option>
         <option value="3">Blue</option>
     </select>
-    <br>
+    
+    <br *ngIf="achart == '1'">
 
     <button (click)="redirect()" *ngIf="adata == '1' && adata2 == '1' && chart == '2'" type="submit" name="Create"
         id="quest" class="btn btn-primary">Submit</button>
 
+    <!-- Para cuando se elige area chart -->
+
     <label *ngIf="achart == '1' && chart == '3'" for="name">Name</label>
     <div *ngIf="achart == '1' && chart == '3'" class="form-group">
-        <input (change)="onFormChange()" type="text" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Enter name">
+        <input (change)="onFormChange()" type="text" class="form-control" id="name" name="name" [(ngModel)]="name"
+            placeholder="Enter name">
         <div class="flecha">
             <i *ngIf="aname != '1'" (click)="fName()" class="fa-solid fa-circle-arrow-right"></i>
             <i *ngIf="aname == '1'" class="fa-solid fa-check"></i>
@@ -133,7 +141,8 @@
 
     <label *ngIf="alabels == '1' && chart == '3'" for="data">Data</label>
     <div *ngIf="alabels == '1' && chart == '3'" class="form-group">
-        <input (change)="onFormChange()" type="text" class="form-control" id="data" name="data" [(ngModel)]="data" placeholder="Example: 1,2,3,4">
+        <input (change)="onFormChange()" type="text" class="form-control" id="data" name="data" [(ngModel)]="data"
+            placeholder="Example: 1,2,3,4">
         <div class="flecha">
             <i *ngIf="adata != '1'" (click)="fData()" class="fa-solid fa-circle-arrow-right"></i>
             <i *ngIf="adata == '1'" class="fa-solid fa-check"></i>
@@ -150,15 +159,14 @@
         <option value="3">Blue</option>
         <br>
     </select>
-    <br *ngIf="chart=='1'">
+    <br *ngIf="chart=='3'">
     <button (click)="redirect()" *ngIf="adata == '1' && chart == '3'" type="submit" name="Create" id="quest"
         class="btn btn-primary">Submit</button>
 </form>
 
 
-<div style="display: flex; align-items: center; text-align: center; margin: 100px; height: 20rem;">
-    <div class="preview">
-        <h1>Preview</h1>
+<div *ngIf="acolor != '1'" class="preview1" >
+    <div class="preview2">
         <canvas id="chart2"></canvas>
     </div>
 </div>
