@@ -53,6 +53,7 @@ div {
   width: 100%;
   height: auto;
   margin-bottom: 100px;
+  pointer-events: none;
 }
 
 #line, #bar, #area {
@@ -63,38 +64,30 @@ div {
   margin: 10px;
   transition: transform 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-}
-
-#line:hover, #bar:hover, #area:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
-}
-
-#line {
-  background-image: url("https://phppot.com/wp-content/uploads/2022/11/chartjs-line-chart-output-550x286.jpg");
   background-size: contain; 
   background-repeat: no-repeat; 
   background-position: center; 
 }
 
+
+#line {
+  background-image: url("https://phppot.com/wp-content/uploads/2022/11/chartjs-line-chart-output-550x286.jpg");
+
+}
+
 #bar {
-  background-image: url("https://uploads.codesandbox.io/uploads/user/11b99481-39f0-4145-b1c0-ec311d4b974c/cv91-thumbnail.png");
-  background-size: contain; 
-  background-repeat: no-repeat; 
-  background-position: center;
+
   background-image: url("https://www.freecodecamp.org/news/content/images/2022/08/barchart.png");
 }
 
 #area {
   background-image: url("https://uploads.codesandbox.io/uploads/user/11b99481-39f0-4145-b1c0-ec311d4b974c/cv91-thumbnail.png");
-  background-size: contain; 
-  background-repeat: no-repeat; 
-  background-position: center;
   
 }
 
 #line:hover, #bar:hover, #area:hover {
   transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
 }
 
 #contenedor {

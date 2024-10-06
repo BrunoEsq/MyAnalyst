@@ -92,6 +92,7 @@ export class CreateFormComponent {
     const labelsArray = this.labels.split(",").map(label => label.trim());
     const dataArray = this.data.split(",").map(value => parseInt(value.trim(), 10));
     const dataArray2 = this.data2.split(",").map(value => parseInt(value.trim(), 10));
+
     if (this.chart == "1") {
       const chartData = {
         labels: labelsArray,
@@ -189,5 +190,24 @@ export class CreateFormComponent {
       this.router.navigate(['charts']);
       console.log('after delay');
     })();
+  }
+
+  lineChart(){
+    console.log(this.achart)
+    this.chart = '1';
+    this.achart = '1';
+    console.log(this.achart)
+  }
+
+  
+
+  areaChart(){
+    this.chart = '2';
+    this.achart = '3';
+  }
+
+  barChart(){
+    this.achart = '2';
+    this.chart = '3';
   }
 }
