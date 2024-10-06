@@ -59,23 +59,38 @@ div {
   border-radius: 25px;
   border: 1px solid #000;
   width: 420px;
-  height: 300px;
+  height: 280px;
   margin: 10px;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+#line:hover, #bar:hover, #area:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
 }
 
 #line {
-  background-color: cyan;
-  background-size: cover;
   background-image: url("https://phppot.com/wp-content/uploads/2022/11/chartjs-line-chart-output-550x286.jpg");
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center; 
 }
 
 #bar {
-  background-color: blue;
+  background-image: url("https://uploads.codesandbox.io/uploads/user/11b99481-39f0-4145-b1c0-ec311d4b974c/cv91-thumbnail.png");
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-image: url("https://www.freecodecamp.org/news/content/images/2022/08/barchart.png");
 }
 
 #area {
-  background-color: yellow;
+  background-image: url("https://uploads.codesandbox.io/uploads/user/11b99481-39f0-4145-b1c0-ec311d4b974c/cv91-thumbnail.png");
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+  
 }
 
 #line:hover, #bar:hover, #area:hover {
@@ -89,3 +104,13 @@ div {
   height: 100vh;
   
 }
+
+
+.title{
+  margin-top: 30px;
+  margin-bottom: -8rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
