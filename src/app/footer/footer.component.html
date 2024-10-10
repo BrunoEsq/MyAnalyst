@@ -1,0 +1,544 @@
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+
+    input::-webkit-input-placeholder,
+    textarea::-webkit-input-placeholder {
+        color: #aca49c;
+        font-size: 0.875em;
+    }
+
+    input:focus::-webkit-input-placeholder,
+    textarea:focus::-webkit-input-placeholder {
+        color: #bbb5af;
+    }
+
+    input::-moz-placeholder,
+    textarea::-moz-placeholder {
+        color: #aca49c;
+        font-size: 0.875em;
+    }
+
+    input:focus::-moz-placeholder,
+    textarea:focus::-moz-placeholder {
+        color: #bbb5af;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: #aca49c;
+        font-size: 0.875em;
+    }
+
+    input:focus::placeholder,
+    textarea::focus:placeholder {
+        color: #bbb5af;
+    }
+
+    input::-ms-placeholder,
+    textarea::-ms-placeholder {
+        color: #aca49c;
+        font-size: 0.875em;
+    }
+
+    input:focus::-ms-placeholder,
+    textarea:focus::-ms-placeholder {
+        color: #bbb5af;
+    }
+
+    /* on hover placeholder */
+
+    input:hover::-webkit-input-placeholder,
+    textarea:hover::-webkit-input-placeholder {
+        color: #e2dedb;
+        font-size: 0.875em;
+    }
+
+    input:hover:focus::-webkit-input-placeholder,
+    textarea:hover:focus::-webkit-input-placeholder {
+        color: #cbc6c1;
+    }
+
+    input:hover::-moz-placeholder,
+    textarea:hover::-moz-placeholder {
+        color: #e2dedb;
+        font-size: 0.875em;
+    }
+
+    input:hover:focus::-moz-placeholder,
+    textarea:hover:focus::-moz-placeholder {
+        color: #cbc6c1;
+    }
+
+    input:hover::placeholder,
+    textarea:hover::placeholder {
+        color: #e2dedb;
+        font-size: 0.875em;
+    }
+
+    input:hover:focus::placeholder,
+    textarea:hover:focus::placeholder {
+        color: #cbc6c1;
+    }
+
+    input:hover::placeholder,
+    textarea:hover::placeholder {
+        color: #e2dedb;
+        font-size: 0.875em;
+    }
+
+    input:hover:focus::-ms-placeholder,
+    textarea:hover::focus:-ms-placeholder {
+        color: #cbc6c1;
+    }
+
+
+
+    #contactForm {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        /* Fija un máximo de 500px */
+        margin: 0 auto;
+        /* Centrará el formulario horizontalmente */
+        padding: 0 20px;
+        /* Añade un padding en ambos lados */
+    }
+
+    input {
+        font-family: 'Lato', sans-serif;
+        font-size: 0.875em;
+        width: 470px;
+        height: 50px;
+        padding: 0px 15px 0px 15px;
+
+        background: transparent;
+        outline: none;
+        color: #726659;
+
+        border: solid 1px #b3aca7;
+        border-bottom: none;
+
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+    }
+
+    input:hover {
+        background: #b3aca7;
+        color: #e2dedb;
+    }
+
+    textarea {
+        width: 470px;
+        max-width: 470px;
+        height: 110px;
+        max-height: 110px;
+        padding: 15px;
+
+        background: transparent;
+        outline: none;
+
+        color: #726659;
+        font-family: 'Lato', sans-serif;
+        font-size: 0.875em;
+
+        border: solid 1px #b3aca7;
+
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+    }
+
+    textarea:hover {
+        background: #b3aca7;
+        color: #e2dedb;
+    }
+
+    #submit {
+        width: 502px;
+
+        padding: 0;
+        margin: -5px 0px 0px 0px;
+
+        font-family: 'Lato', sans-serif;
+        font-size: 0.875em;
+        color: #b3aca7;
+
+        outline: none;
+        cursor: pointer;
+
+        border: solid 1px #b3aca7;
+        border-top: none;
+    }
+
+    #submit:hover {
+        color: #e2dedb;
+    }
+
+    header {
+        font-family: 'Lato', sans-serif;
+
+        color: #b3aca7;
+        position: relative;
+        margin: 0px 0 25px 0;
+        font-size: 2.3em;
+        text-align: center;
+        letter-spacing: 7px;
+    }
+
+    .contenedor {
+        margin-left: 50px;
+        margin-right: 65px;
+    }
+
+    .conpadre {
+        background-color: white;
+        width: 100%;
+        height: 500px;
+    }
+
+    @media (max-width: 768px) {
+        #contactForm {
+            width: 100%;
+            /* Se adapta al ancho disponible */
+            margin-left: -50px;
+
+            /* Centrado en pantallas pequeñas */
+            /* Ajusta el padding para mantener margen */
+        }
+
+        .contenedor {
+            margin-left: 0;
+            margin-right: 0;
+            /* Asegúrate de que el contenedor no añada márgenes adicionales */
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .conpadre {
+            background-color: white;
+            width: 100%;
+            height: 400px;
+            padding-left: 20px;
+
+        }
+    }
+</style>
+
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+
+    input::-webkit-input-placeholder,
+    textarea::-webkit-input-placeholder {
+        color: #aca49c;
+        font-size: 0.875em;
+    }
+
+    input:focus::-webkit-input-placeholder,
+    textarea:focus::-webkit-input-placeholder {
+        color: #bbb5af;
+    }
+
+    input::-moz-placeholder,
+    textarea::-moz-placeholder {
+        color: #aca49c;
+        font-size: 0.875em;
+    }
+
+    input:focus::-moz-placeholder,
+    textarea:focus::-moz-placeholder {
+        color: #bbb5af;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: #aca49c;
+        font-size: 0.875em;
+    }
+
+    input:focus::placeholder,
+    textarea::focus:placeholder {
+        color: #bbb5af;
+    }
+
+    input::-ms-placeholder,
+    textarea::-ms-placeholder {
+        color: #aca49c;
+        font-size: 0.875em;
+    }
+
+    input:focus::-ms-placeholder,
+    textarea:focus::-ms-placeholder {
+        color: #bbb5af;
+    }
+
+    /* on hover placeholder */
+
+    input:hover::-webkit-input-placeholder,
+    textarea:hover::-webkit-input-placeholder {
+        color: #e2dedb;
+        font-size: 0.875em;
+    }
+
+    input:hover:focus::-webkit-input-placeholder,
+    textarea:hover:focus::-webkit-input-placeholder {
+        color: #cbc6c1;
+    }
+
+    input:hover::-moz-placeholder,
+    textarea:hover::-moz-placeholder {
+        color: #e2dedb;
+        font-size: 0.875em;
+    }
+
+    input:hover:focus::-moz-placeholder,
+    textarea:hover:focus::-moz-placeholder {
+        color: #cbc6c1;
+    }
+
+    input:hover::placeholder,
+    textarea:hover::placeholder {
+        color: #e2dedb;
+        font-size: 0.875em;
+    }
+
+    input:hover:focus::placeholder,
+    textarea:hover:focus::placeholder {
+        color: #cbc6c1;
+    }
+
+    input:hover::placeholder,
+    textarea:hover::placeholder {
+        color: #e2dedb;
+        font-size: 0.875em;
+    }
+
+    input:hover:focus::-ms-placeholder,
+    textarea:hover::focus:-ms-placeholder {
+        color: #cbc6c1;
+    }
+
+
+
+    #contactForm {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        /* Fija un máximo de 500px */
+        margin: 0 auto;
+        /* Centrará el formulario horizontalmente */
+        padding: 0 20px;
+        /* Añade un padding en ambos lados */
+    }
+
+    input {
+        font-family: 'Lato', sans-serif;
+        font-size: 0.875em;
+        width: 470px;
+        height: 50px;
+        padding: 0px 15px 0px 15px;
+
+        background: transparent;
+        outline: none;
+        color: #726659;
+
+        border: solid 1px #b3aca7;
+        border-bottom: none;
+
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+    }
+
+    input:hover {
+        background: #b3aca7;
+        color: #e2dedb;
+    }
+
+    textarea {
+        width: 470px;
+        max-width: 470px;
+        height: 110px;
+        max-height: 110px;
+        padding: 15px;
+
+        background: transparent;
+        outline: none;
+
+        color: #726659;
+        font-family: 'Lato', sans-serif;
+        font-size: 0.875em;
+
+        border: solid 1px #b3aca7;
+
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+    }
+
+    textarea:hover {
+        background: #b3aca7;
+        color: #e2dedb;
+    }
+
+    #submit {
+        width: 502px;
+
+        padding: 0;
+        margin: -5px 0px 0px 0px;
+
+        font-family: 'Lato', sans-serif;
+        font-size: 0.875em;
+        color: #b3aca7;
+
+        outline: none;
+        cursor: pointer;
+
+        border: solid 1px #b3aca7;
+        border-top: none;
+    }
+
+    #submit:hover {
+        color: #e2dedb;
+    }
+
+    header {
+        font-family: 'Lato', sans-serif;
+
+        color: #b3aca7;
+        position: relative;
+        margin: 0px 0 25px 0;
+        font-size: 2.3em;
+        text-align: center;
+        letter-spacing: 7px;
+    }
+
+    .contenedor {
+        margin-left: 50px;
+        margin-right: 65px;
+    }
+
+    .conpadre {
+        background-color: white;
+        width: 100%;
+        height: 500px;
+    }
+
+    @media (max-width: 768px) {
+        #contactForm {
+            width: 100%;
+            /* Se adapta al ancho disponible */
+            margin-left: -50px;
+
+            /* Centrado en pantallas pequeñas */
+            /* Ajusta el padding para mantener margen */
+        }
+
+        .contenedor {
+            margin-left: 0;
+            margin-right: 0;
+            /* Asegúrate de que el contenedor no añada márgenes adicionales */
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .conpadre {
+            background-color: white;
+            width: 100%;
+            height: 400px;
+            padding-left: 20px;
+
+        }
+    }
+</style>
+
+<footer class="mt-5 footer-section">
+    <div class="container">
+
+        <div class="footer-content pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 mb-50">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <a href="index.html"><img src="logohorizontal.svg" class="img-fluid" alt="logo"
+                                    style="width: 350px; height: auto; margin-bottom: 20px;"></a>
+                        </div>
+                        <div class="footer-text">
+                            <p>
+                                This website is copyrighted by minibruno, a freelance worker who tries to make a living
+                                however he can.</p>
+                        </div>
+                        <div class="footer-social-icon">
+                            <span>Follow us</span>
+                            <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                            <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Useful Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">about</a></li>
+                            <li><a href="#">services</a></li>
+                            <li><a href="https://port-folio-chi-blush.vercel.app/">portfolio</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Expert Team</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">Latest News</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Subscribe</h3>
+                        </div>
+                        <div class="footer-text mb-25">
+                            <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                        </div>
+                        <div class="subscribe-form">
+                            <form action="#">
+                                <input type="text" placeholder="Email Address">
+                                <button><i class="fab fa-telegram-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2024, All Right Reserved <a href="https://github.com/BrunoEsq">Bruno Esquiva</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
