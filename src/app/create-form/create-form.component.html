@@ -1,16 +1,30 @@
-<form (ngSubmit)="onSubmit()" #myForm="ngForm" class="m-5" *ngIf="acolor != '1'">
-    <label for="chart">Select your Chart Type</label>
-    <select (change)="fChart()" class="form-select" aria-label="Default select example" name="chart" id="chart"
-        [(ngModel)]="chart">
-        <option selected value="1">Line Chart</option>
-        <option value="2">Bar Chart</option>
-        <option value="3">Area Chart</option>
-    </select>
-    <br>
+<div *ngIf="achart != '1' && achart != '2' && achart != '3'" class="title">
+    <h1>Create your Chart</h1>
+</div>
+<div *ngIf="achart != '1' && achart != '2' && achart != '3'" class="container-fluid" id="contenedor">
+    
+    <div class="row mt-sm-5" style="justify-content: center; align-items: center; text-align: center;">
+        <section (click)="lineChart()" class="col-4 " id="line" style="text-align: center;">
+            <h4>Line Chart</h4>
+            
+        </section>
+        <section (click)="areaChart()" (click)="achart = '2'" class="col-4" id="area" style="text-align: center;">
+            <h4>Area Chart</h4>
+        </section>
+        <section (click)="barChart()" (click)="achart = '3'" class="col-4" id="bar" style="text-align: center;">
+            <h4>Bar Chart</h4>
+        </section>
+    </div>
+
+</div>
+
+
+<form (ngSubmit)="onSubmit()" #myForm="ngForm" class="m-5" *ngIf="achart == '1' || achart == '2' || achart == '3'">
+
 
     <!-- Para cuando se elige Line Chart -->
-    <label *ngIf="achart == '1' && chart == '1'" for="name">Name</label>
-    <div *ngIf="achart == '1' && chart == '1'" class="form-group">
+    <label *ngIf="achart == '1' " for="name">Name</label>
+    <div *ngIf="achart == '1'" class="form-group">
         <input (change)="onFormChange()" type="text" class="form-control" id="name" name="name" [(ngModel)]="name"
             placeholder="Enter name">
         <div class="flecha">
@@ -20,8 +34,8 @@
     </div>
 
 
-    <label *ngIf="aname == '1' && chart == '1'" for="labels">Labels</label>
-    <div *ngIf="aname == '1' && chart == '1'" class="form-group">
+    <label *ngIf="aname == '1' && achart == '1'" for="labels">Labels</label>
+    <div *ngIf="aname == '1' && achart == '1'" class="form-group">
         <input (change)="onFormChange()" type="text" class="form-control" id="labels" name="labels" [(ngModel)]="labels"
             placeholder="Example: January, February, ...">
         <div class="flecha">
@@ -31,8 +45,8 @@
     </div>
 
 
-    <label *ngIf="alabels == '1' && chart == '1'" for="data">Data</label>
-    <div *ngIf="alabels == '1' && chart == '1'" class="form-group">
+    <label *ngIf="alabels == '1' && achart == '1'" for="data">Data</label>
+    <div *ngIf="alabels == '1' && achart == '1'" class="form-group">
         <input (change)="onFormChange()" type="text" class="form-control" id="data" name="data" [(ngModel)]="data"
             placeholder="Example: 1,2,3,4">
         <div class="flecha">
@@ -42,8 +56,8 @@
     </div>
 
 
-    <label *ngIf="adata == '1' && chart == '1'" for="color">Color</label>
-    <select (change)="onFormChange()" *ngIf="adata == '1' && chart == '1'" class="form-select"
+    <label *ngIf="adata == '1' && achart == '1'" for="color">Color</label>
+    <select (change)="onFormChange()" *ngIf="adata == '1' && achart == '1'" class="form-select"
         aria-label="Default select example" name="color" id="color" [(ngModel)]="color">
         <option selected>Select Line Color</option>
         <option value="1">Green</option>
@@ -51,13 +65,13 @@
         <option value="3">Blue</option>
         <br>
     </select>
-    <br *ngIf="chart=='1'">
-    <button (click)="redirect()" *ngIf="adata == '1' && chart == '1'" type="submit" name="Create" id="quest"
+    <br *ngIf="achart=='2'">
+    <button (click)="redirect()" *ngIf="adata == '1' && achart == '1'" type="submit" name="Create" id="quest"
         class="btn btn-primary">Submit</button>
     <!-- Para cuando se elige Bar Chart -->
 
-    <label *ngIf="achart == '1' && chart == '2'" for="name">Name</label>
-    <div *ngIf="achart == '1' && chart == '2'" class="form-group">
+    <label *ngIf="achart == '3' && chart == '2'" for="name">Name</label>
+    <div *ngIf="achart == '3' && chart == '2'" class="form-group">
         <input (change)="onFormChange()" type="text" class="form-control" id="name" name="name" [(ngModel)]="name"
             placeholder="Enter name">
         <div class="flecha">
@@ -110,15 +124,15 @@
         <option value="3">Blue</option>
     </select>
     
-    <br *ngIf="achart == '1'">
+    <br *ngIf="achart == '3'">
 
     <button (click)="redirect()" *ngIf="adata == '1' && adata2 == '1' && chart == '2'" type="submit" name="Create"
         id="quest" class="btn btn-primary">Submit</button>
 
     <!-- Para cuando se elige area chart -->
 
-    <label *ngIf="achart == '1' && chart == '3'" for="name">Name</label>
-    <div *ngIf="achart == '1' && chart == '3'" class="form-group">
+    <label *ngIf="achart == '2' && chart == '3'" for="name">Name</label>
+    <div *ngIf="achart == '2' && chart == '3'" class="form-group">
         <input (change)="onFormChange()" type="text" class="form-control" id="name" name="name" [(ngModel)]="name"
             placeholder="Enter name">
         <div class="flecha">
