@@ -3,15 +3,15 @@
 </div>
 <div *ngIf="achart != '1' && achart != '2' && achart != '3'" class="container-fluid" id="contenedor">
     
-    <div class="row">
-        <section (click)="lineChart()" class="col-3" id="line" style="text-align: center;">
+    <div class="row mt-sm-5" style="justify-content: center; align-items: center; text-align: center;">
+        <section (click)="lineChart()" class="col-4 " id="line" style="text-align: center;">
             <h4>Line Chart</h4>
             
         </section>
-        <section (click)="areaChart()" (click)="achart = '2'" class="col-3" id="area" style="text-align: center;">
+        <section (click)="areaChart()" (click)="achart = '2'" class="col-4" id="area" style="text-align: center;">
             <h4>Area Chart</h4>
         </section>
-        <section (click)="barChart()" (click)="achart = '3'" class="col-3" id="bar" style="text-align: center;">
+        <section (click)="barChart()" (click)="achart = '3'" class="col-4" id="bar" style="text-align: center;">
             <h4>Bar Chart</h4>
         </section>
     </div>

@@ -56,17 +56,21 @@ div {
   pointer-events: none;
 }
 
-#line, #bar, #area {
+#line,
+#bar,
+#area {
+  padding: -20px;
   border-radius: 25px;
   border: 1px solid #000;
   width: 420px;
   height: 280px;
   margin: 10px;
   transition: transform 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  background-size: contain; 
-  background-repeat: no-repeat; 
-  background-position: center; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombra sutil */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 
@@ -77,17 +81,19 @@ div {
 
 #bar {
 
-  background-image: url("https://www.freecodecamp.org/news/content/images/2022/08/barchart.png");
+  background-image: url("https://apexcharts.com/wp-content/uploads/2018/05/basic-bar-chart-column-chart.svg");
 }
 
 #area {
   background-image: url("https://uploads.codesandbox.io/uploads/user/11b99481-39f0-4145-b1c0-ec311d4b974c/cv91-thumbnail.png");
-  
+
 }
 
-#line:hover, #bar:hover, #area:hover {
+#line:hover,
+#bar:hover,
+#area:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 #contenedor {
@@ -95,15 +101,74 @@ div {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  
+
 }
 
 
-.title{
+.title {
   margin-top: 30px;
   margin-bottom: -8rem;
   text-align: center;
   justify-content: center;
   align-items: center;
+  display: flex;
 }
 
+
+
+@media (max-width: 1000px) {
+  .title {
+    margin-top: 30px;
+    margin-bottom: -8rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 20px;
+
+  }
+
+  #line,
+  #bar,
+  #area {
+    border-radius: 25px;
+    border: 1px solid #000;
+    width: 320px;
+    height: 220px;
+    margin: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .title {
+    margin-top: 30px;
+    margin-bottom: -8rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 50px;
+
+  }
+
+  #line,
+  #bar,
+  #area {
+     
+    border-radius: 25px;
+    border: 1px solid #000;
+    width: 320px;
+    height: 200px;
+    margin: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

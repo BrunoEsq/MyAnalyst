@@ -192,21 +192,24 @@ export class CreateFormComponent {
     })();
   }
 
-  lineChart(){
-    console.log(this.achart)
-    this.chart = '1';
-    this.achart = '1';
-    console.log(this.achart)
+  lineChart() {
+    const lineDiv = document.getElementById('line');
+    if (lineDiv) {
+      lineDiv.classList.add('movimiento-izquierda');
+    }
+      this.chart = '1';
+      this.achart = '1';
+
   }
 
-  
 
-  areaChart(){
+
+  areaChart() {
     this.chart = '2';
     this.achart = '3';
   }
 
-  barChart(){
+  barChart() {
     this.achart = '2';
     this.chart = '3';
   }
